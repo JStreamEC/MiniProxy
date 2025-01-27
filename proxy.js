@@ -1,5 +1,6 @@
-const express = require('express');
+import express from 'express';
 import fetch from 'node-fetch';
+
 const app = express();
 const port = process.env.PORT || 10000; // Usar el puerto proporcionado por Replit
 
@@ -31,5 +32,5 @@ app.get('/proxy', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(Proxy activo en http://localhost:${port});
+    console.log(`Proxy activo en http://localhost:${port}`);
 });
