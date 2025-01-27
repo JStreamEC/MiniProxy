@@ -1,12 +1,3 @@
-const express = require("express");
-const fetch = require("node-fetch");
-
-const app = express();
-const PORT = process.env.PORT || 3000; // Alwaysdata asigna un puerto automáticamente
-
-app.use(express.json());
-
-// Proxy para redirigir la solicitud y añadir el encabezado Referer
 app.get("/proxy", async (req, res) => {
     const targetUrl = req.query.url;
     if (!targetUrl) {
@@ -19,15 +10,16 @@ app.get("/proxy", async (req, res) => {
                 Referer: "https://www.sportlive.cc/", // Agrega el encabezado Referer
             },
         });
+
+        if (!response.ok) {
+            // Si la respuesta no es 200 OK, muestra el error
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
         res.json(data); // Devuelve los datos JSON al cliente
     } catch (error) {
         console.error("Error al obtener los datos:", error);
-        res.status(500).json({ error: "Error al obtener los datos" });
+        res.status(500).json({ error: `Error al obtener los datos: ${error.message}` });
     }
-});
-
-// Inicia el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor proxy escuchando en el puerto ${PORT}`);
 });
