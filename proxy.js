@@ -1,5 +1,5 @@
 const express = require('express');
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 const app = express();
 const port = process.env.PORT || 10000; // Usar el puerto proporcionado por Replit
 
