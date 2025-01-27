@@ -1,7 +1,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
-const port = process.env.PORT || 3000; // Usar el puerto proporcionado por Replit
+const port = process.env.PORT || 10000; // Usar el puerto proporcionado por Replit
 
 app.use(express.json());
 
