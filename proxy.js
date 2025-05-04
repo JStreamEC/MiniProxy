@@ -15,7 +15,7 @@ app.get('/proxy', async (req, res) => {
     try {
         const response = await fetch(targetUrl, {
             headers: {
-                'Referer': '............',
+                'Referer': 'https://daddylive.mp/',
             },
         });
 
