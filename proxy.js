@@ -15,7 +15,7 @@ app.get('/proxy', async (req, res) => {
     try {
         const response = await fetch(targetUrl, {
             headers: {
-                'Referer': 'https://thedaddy.top/',
+                'Referer': 'https://daddylivestream.com/',
             },
         });
 
@@ -34,4 +34,5 @@ app.get('/proxy', async (req, res) => {
 app.listen(port, () => {
     console.log(`Proxy activo en http://localhost:${port}`);
 });
+
 
